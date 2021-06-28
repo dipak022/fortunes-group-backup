@@ -257,8 +257,7 @@ $Setting=DB::table('Setting')
 										@if($sub->webside_link!=NULL)
                                     <a href="{{ $sub->webside_link }}" target="_blank">{{ $sub->name }}</a>
                                     @else
-                                    	<a href="{{ $urls }}
-													/{{ $sub->name }}/{{\Crypt::encrypt($sub->id)}}">{{ $sub->name }}</a>
+                                    	<a href="{{ $urls }}/backup-fortunes-group/{{ $sub->name }}/{{\Crypt::encrypt($sub->id)}}">{{ $sub->name }}</a>
                                     @endif
 									 
 									</li>
