@@ -1,0 +1,135 @@
+  @extends('layouts.backend.top-left-nav')
+  @section('details')
+         <!-- Right Side Content Start -->
+         <section id="content" class="seipkon-content-wrapper">
+            <div class="page-content">
+               <div class="container-fluid">
+                   
+                  <!-- Breadcromb Row Start -->
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="breadcromb-area">
+                           <div class="row">
+                              <div class="col-md-6 col-sm-6">
+                                 <div class="seipkon-breadcromb-left">
+                                    <h3>Category</h3>
+                                 </div>
+                              </div>
+                              <div class="col-md-6 col-sm-6">
+                                 <div class="seipkon-breadcromb-right">
+                                    <ul>
+                                       <li><a href="#">Dashbord</a></li>
+                                       <li>Categories</li>
+                                       <li>all Category</li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- End Breadcromb Row -->
+                   
+                  <!-- Pages Table Row Start -->
+                  <div class="row">
+                     <div class="col-md-12">
+
+                        <div class="page-box">
+                           <div class="table-responsive">
+                         
+                           	<a style="margin-bottom: 5px;" class="btn btn-success pull-right" data-toggle="modal" data-target="#notesmodal" href="#">
+                                    <i class="fa fa-plus"></i>Add New 
+                                    </a>
+                              <div class="datatables-example-heading">
+                              <h3>Category Datatable</h3>
+                              </div>
+                              <div class="table-responsive advance-table">
+                              <table id="datatables_example_1" class="table display table-bordered">
+                                 <thead>
+                                    <tr>
+                                       <th style="text-align: center;">No</th>
+                                       <th style="text-align: center;">Category Name</th>
+                                       <th style="text-align: center;">Link</th>
+                                       <th style="text-align: center;">Action</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                 	@foreach($categorys as $row)
+                                    <tr>
+                                    	
+                                       <td style="text-align: center;">{{ $row->id }}</td>
+                                       <td style="text-align: center;">{{ $row->category_name }}</td>
+                                       <td style="text-align: center;">{{ $row->link }}</td>
+                             
+                                       <td style="text-align: center;">
+                                         
+                                          <a href="{{ url('edit/category/'.$row->id) }}" class="page-table-info" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+                                          <a href="{{ url('delete/category/'.$row->id) }}" class="page-table-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+                                       </td>
+                                       
+                                    </tr>
+                                   @endforeach
+                                
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- End Pages Table Row -->
+                   
+               </div>
+            </div>
+             
+         
+        
+
+         </section>
+ 
+  <!-- Start Modal -->
+                  <div class="modal fade" id="notesmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                     <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">Add New Category</h4>
+                           </div>
+                           <div class="modal-body">
+                              <div class="notes_sector">
+                                 @if ($errors->any())
+                                  <div class="alert alert-danger">
+                                      <ul>
+                                          @foreach ($errors->all() as $error)
+                                              <li>{{ $error }}</li>
+                                          @endforeach
+                                      </ul>
+                                  </div>
+                                 @endif
+                                 <form method="post" action="{{ route('store.category') }}">
+                                 	@csrf
+                                    <p>
+                                    	 <label for="exampleInputEmail1">Cetagory Name</label>
+                                       <input type="text" class="picker_1" name="category_name" placeholder="Category Name"  />
+                                    </p>
+                                    <p>
+                                        <label for="exampleInputEmail1">Link</label>
+                                       <input type="text" class="picker_1" name="link" placeholder="Link"  />
+                                    </p>
+                                   
+                                    
+                                 
+                              </div>
+                           </div>
+                           <div class="modal-footer">
+                              <button type="submit" class="btn btn-success">Save </button>
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                           </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- End Modal -->
+@endsection
+
+       
+  
