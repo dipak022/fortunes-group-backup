@@ -151,7 +151,7 @@ $Setting=DB::table('Setting')
 	<!-- wrappers for visual page editor and boxed version of template -->
 	<div id="canvas">
 		<div id="box_wrapper">
-			<div class="header_absolute">
+			<div class="">
 			
 	<div class="top_header">
 		<div class="container-fluid">

@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'e75f92c1d2390997d7596d5c7cb7d3d124224a65',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -28,6 +28,24 @@
       array (
       ),
       'reference' => '283a40c901101e66de7061bd359252c013dcc43c',
+    ),
+    'cloudinary-labs/cloudinary-laravel' => 
+    array (
+      'pretty_version' => '1.0.4',
+      'version' => '1.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7543449243848eb936e4c492b82ec64512e67da0',
+    ),
+    'cloudinary/cloudinary_php' => 
+    array (
+      'pretty_version' => '2.2.0',
+      'version' => '2.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c9dee2473af1c2f04aa7f9bbc816a4a821084ce2',
     ),
     'cordoval/hamcrest-php' => 
     array (
@@ -449,12 +467,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'e75f92c1d2390997d7596d5c7cb7d3d124224a65',
     ),
     'laravel/tinker' => 
     array (
@@ -969,6 +987,15 @@
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
     ),
+    'shrikeh/teapot' => 
+    array (
+      'pretty_version' => 'v2.3.1',
+      'version' => '2.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2fea5720963f22eedb920ee65b9d643bfa3e8daf',
+    ),
     'swiftmailer/swiftmailer' => 
     array (
       'pretty_version' => 'v6.2.3',
@@ -1234,6 +1261,15 @@
       array (
       ),
       'reference' => '4e13f3fcefb1fcaaa5efb5403581406f4e840b9a',
+    ),
+    'teapot/status-code' => 
+    array (
+      'pretty_version' => 'v1.1.2',
+      'version' => '1.1.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7aaba4364645ebb9d3a36267c9b3a32206d3042b',
     ),
     'theseer/tokenizer' => 
     array (

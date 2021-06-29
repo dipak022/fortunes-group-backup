@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\ImageGallery;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use DB;
 use Image;
 use File;
@@ -30,14 +31,18 @@ class ImageGalleryController extends Controller
         $image=$request->gallery_image;
 
           if($image){
-                $image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(300,300)->save('public/public/media/Gallery/'.$image_one_name);
+                /*$image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(300,300)->save('public/public/media/Gallery/'.$image_one_name);*/
+                $image_slidders = Cloudinary::upload($request->file('gallery_image')->getRealPath(),[
+                  'folder'=>'group/gallery/'
+                ])->getSecurePath();
                 
                 foreach ($request->user_id as $row) {
             $data[]=[
               "user_id"=>$row,
               "user_value"=>$request->user_value[$row],
-              "gallery_image"=>'public/public/media/Gallery/'.$image_one_name,
+              //"gallery_image"=>'public/public/media/Gallery/'.$image_one_name,
+              "gallery_image"=>$image_slidders,
               "description"=>$request->description,
             ];
         }
@@ -99,10 +104,13 @@ class ImageGalleryController extends Controller
         $image=$request->gallery_image;
         
     	 if($image) {
-           //unlink($old_image);
+           /*unlink($old_image);
            $image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-           Image::make($image)->resize(200,100)->save('public/public/media/Gallery/'.$image_one_name);
-           $data['gallery_image']='public/public/media/Gallery/'.$image_one_name;
+           Image::make($image)->resize(200,100)->save('public/public/media/Gallery/'.$image_one_name);*/
+           $image_slidders = Cloudinary::upload($request->file('gallery_image')->getRealPath(),[
+                  'folder'=>'group/gallery/'
+                ])->getSecurePath();
+           $data['gallery_image']=$image_slidders;
             $done=DB::table('project_image')->where('id',$id)->update($data);
             if($done){
 		        	$notification = array(

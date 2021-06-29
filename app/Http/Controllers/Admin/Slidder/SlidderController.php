@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Slidder;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use DB;
 use Image;
 use File;
@@ -40,9 +41,14 @@ class SlidderController extends Controller
 
         if($image){
 
-                $image_slidder= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                /*$image_slidder= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(1200,1000)->save('public/public/media/slidder/'.$image_slidder);
-                $data['slidder_image']='public/public/media/slidder/'.$image_slidder;
+                $data['slidder_image']='public/public/media/slidder/'.$image_slidder;*/
+                $image_slidder = Cloudinary::upload($request->file('slidder_image')->getRealPath(),[
+                  'folder'=>'group/slider/'
+                ])->getSecurePath();
+                
+                $data['slidder_image']=$image_slidder;
                 $done=DB::table('slidder')->insert($data);
 		        if($done){
 		        	$notification = array(
@@ -107,9 +113,14 @@ class SlidderController extends Controller
         if($image) {
 	       	if ($old_image) {
 	       		
-	       		 		 $image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+	       		 		 /*$image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
 	                    Image::make($image)->resize(1200,1000)->save('public/public/media/slidder/'.$image_one_name);
-	                   $data['slidder_image']='public/public/media/slidder/'.$image_one_name;
+	                   $data['slidder_image']='public/public/media/slidder/'.$image_one_name;*/
+                     $image_slidder = Cloudinary::upload($request->file('slidder_image')->getRealPath(),[
+                           'folder'=>'group/slider/'
+                        ])->getSecurePath();
+                
+                $data['slidder_image']=$image_slidder;
 	                   $done=DB::table('slidder')->where('id',$id)->update($data);
 	                     if($done){
 		        	       $notification = array(
@@ -127,9 +138,14 @@ class SlidderController extends Controller
 				        
 	       	}else{
 	       		unlink($old_image);
-		       		    $image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+		       		    /*$image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
 		                Image::make($image)->resize(1200,1000)->save('public/public/media/slidder/'.$image_one_name);
-				        $data['slidder_image']='public/public/media/slidder/'.$image_one_name;
+				        $data['slidder_image']='public/public/media/slidder/'.$image_one_name;*/
+                $image_slidder = Cloudinary::upload($request->file('slidder_image')->getRealPath(),[
+                  'folder'=>'group/slider/'
+                ])->getSecurePath();
+                
+                $data['slidder_image']=$image_slidder;
 				        $done=DB::table('slidder')->where('id',$id)->update($data);
 				            if($done){
 					        	  $notification = array(
@@ -169,7 +185,7 @@ class SlidderController extends Controller
     public function DeleteSlidder($id){
     	$images=DB::table('slidder')->where('id',$id)->first();
         $image=$images->slidder_image;
-        unlink($image);
+        //unlink($image);
       $done=DB::table('slidder')->where('id',$id)->delete();
         
         if($done){
@@ -204,9 +220,14 @@ class SlidderController extends Controller
        $data['slider_id']=$request->slider_id;
 
        if ($image) {
-         $image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        /* $image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
          Image::make($image)->resize(1200,1000)->save('public/public/media/fCategory/'.$image_one_name);
-        $data['image']='public/public/media/fCategory/'.$image_one_name;
+        $data['image']='public/public/media/fCategory/'.$image_one_name;*/
+        $image_slidder = Cloudinary::upload($request->file('image')->getRealPath(),[
+                  'folder'=>'group/company/slider/'
+                ])->getSecurePath();
+                
+                $data['image']=$image_slidder;
         $done=DB::table('business_slider')->insert($data);
          if($done){
           $notification = array(
@@ -243,10 +264,15 @@ class SlidderController extends Controller
        $image=$request->image;
        $data['slider_id']=$request->slider_id;
         if ($image) {
-          unlink($old_image);
+          /*unlink($old_image);
          $image_one_name= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
          Image::make($image)->resize(1200,1000)->save('public/public/media/fCategory/'.$image_one_name);
-        $data['image']='public/public/media/fCategory/'.$image_one_name;
+        $data['image']='public/public/media/fCategory/'.$image_one_name;*/
+        $image_slidder = Cloudinary::upload($request->file('image')->getRealPath(),[
+                  'folder'=>'group/company/slider/'
+                ])->getSecurePath();
+                
+                $data['image']=$image_slidder;
          $done=DB::table('business_slider')->where('id',$id)->update($data);
           if($done){
           $notification = array(

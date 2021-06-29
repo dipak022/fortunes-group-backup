@@ -4,7 +4,7 @@
     $slidder=DB::table('slidder')
         ->orderBy('id','ASC')->limit(15)->get();
 @endphp
-   <section style="margin-top:50px;" class="page_slider">
+  {{--  <section style="margin-top:50px;" class="page_slider">
         <div class="flexslider">
             <ul class="slides">
                 @foreach($slidder as $row)
@@ -35,14 +35,14 @@
                 @endforeach
             </ul>
         </div> 
-    </section>
+    </section> --}}
     
     
     
     
     	<!-- ======================= Banner part start ======================= -->
 
-	<!--		<section class="banner_section">
+			<section class="banner_section">
 				<div class="banner_container">
 				     @foreach($slidder as $row)
 					<div class="banner_img" style="background: url({{ $row->slidder_image }});">
@@ -71,7 +71,7 @@
 					@endforeach
 				
 				</div>
-			</section>-->
+			</section>
 			<!-- ======================= Banner part end ======================= -->
     
     
