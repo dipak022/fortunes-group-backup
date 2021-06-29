@@ -5,7 +5,7 @@
         ->orderBy('id','DESC')->limit(10)->get();
 
 @endphp
-    <section class="page_slider">
+    {{-- <section class="page_slider">
         <div class="flexslider">
             <ul class="slides">
                 @foreach($business_sliders as $row)
@@ -16,7 +16,18 @@
                 @endforeach
             </ul>
         </div> <!-- eof flexslider -->
-    </section>
+    </section> --}}
+     <section class="banner_section">
+
+                <div class="banner_container">
+                    @foreach($business_sliders as $row)
+                    <div class="banner_img" style="background: url({{ asset($row->image) }});">
+                     
+                    </div>
+                  @endforeach
+                </div>
+                
+            </section>
 @php 
     $about=DB::table('about')
         ->orderBy('id','DESC')->limit(1)->get();

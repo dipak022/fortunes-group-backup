@@ -40,39 +40,43 @@
     
     
     
-    	<!-- ======================= Banner part start ======================= -->
+    <!-- ======================= Banner part start ======================= -->
 
-			<section class="banner_section">
-				<div class="banner_container">
-				     @foreach($slidder as $row)
-					<div class="banner_img" style="background: url({{ $row->slidder_image }});">
-						<div class="banner_content_body">
-							<div class="container-fluid">
-								<div class="row justify-content-center">
-									<div class="col-md-10">
-										<div class="banner_content">
-											<h2>{{ $row->name }}</h2>
-											<p>{{ $row->description }}</p>
-											<p>{{ $row->short_description }}</p>
-											<div class="all_button">
-												<a href="http://solarbazarbd.com/" class="btn btn-outline-darkgrey big-btn" target="_blank">Solar Bazar</a>
-											</div>
-											<div class="all_button">
-											
-											<h4 class="text-divider">&</h4>
-											<a href="https://www.facebook.com/fdigimart/" class="btn btn-outline-darkgrey big-btn" target="_blank">Digital Mart</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					@endforeach
-				
-				</div>
-			</section>
-			<!-- ======================= Banner part end ======================= -->
+            <section class="banner_section">
+
+                <div class="banner_container">
+                    @foreach($slidder as $row)
+                    <div class="banner_img" style="background: url({{ $row->slidder_image }});">
+                        <div class="banner_content_body">
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6">
+                                        <div class="intro_layers">
+                                            <div class="intro_layer">
+                                                <div class="banner_content">
+                                                    <h2>{{ $row->name }}</h2>
+                                                    <p>{{ $row->description }}</p>
+                                                     <p>{{ $row->short_description }}</p>
+                                                    <div class="all_button">
+                                                        <a href="http://solarbazarbd.com/" class="" target="_blank">Solar Bazar</a>
+                                                    </div>
+                                                    <div class="all_button">
+                                                        <a href="https://www.facebook.com/fdigimart/" class="" target="_blank">Digital Mart</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  @endforeach
+                </div>
+                
+            </section>
+
+            <!-- ======================= Banner part end ======================= -->
     
     
     

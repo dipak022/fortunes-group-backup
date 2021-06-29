@@ -278,14 +278,18 @@ padding: 15px 50px;
 
 .banner_section {
   position: relative;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-bottom: -10px !important;
 }
 .banner_container {
   width: 100%;
   overflow: hidden;
-  clear: both;
+ margin: 0 !important;
+ padding: 0 !important;
 }
 .banner_container .banner_img {
-  height: 85vh !important;
+  height: 87vh !important;
   width: 100% !important;
   background-position: center center !important;
   -webkit-background-size: cover !important;
@@ -295,8 +299,6 @@ padding: 15px 50px;
   background-repeat: no-repeat !important;
   position: relative;
   overflow: hidden;
-  clear: both;
-  /* object-fit: cover !important; */
   /* background-attachment: fixed !important; */
 }
 .banner_container .banner_img::after {
@@ -350,6 +352,7 @@ padding: 15px 50px;
 .slick-dots li button {
   height: 21px !important;
   width: 21px !important;
+  border: 3px !important;
 
   border-radius: 50% !important;
   color: transparent !important;
@@ -363,8 +366,7 @@ padding: 15px 50px;
   border-radius: 50% !important;
   border-color: transparent !important;
   z-index: 2;
-  line-height: 21px;
-  margin-top: 50px;
+
 } */
 .slick-dots li.slick-active button {
   border-color: #27ad60 !important;
@@ -398,5 +400,68 @@ padding: 15px 50px;
     border-radius: 30px;
     background-color: #27ae61;
     font-size: 13px;
+  }
+}
+
+
+/* ==================== */
+.intro_layers_wrapper {
+  align-items: center;
+  display: flex;
+}
+
+.intro_layers {
+  -webkit-animation: bubble 5s linear infinite;
+  animation: bubble 5s linear infinite;
+  background-image: linear-gradient(to top, #dd4454 0%, #dd9044 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* margin-left: 250px; */
+  /* max-width: 730px; */
+  padding: 80px 0;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.intro_layers .btn {
+  margin-bottom: 0;
+}
+@-webkit-keyframes bubble {
+  0%,
+  100% {
+    border-radius: 64% 46% 37% 73% / 55% 58% 42% 45%;
+  }
+
+  25% {
+    border-radius: 43% 47% 47% 38% / 43% 46% 64% 27%;
+  }
+
+  50% {
+    border-radius: 48% 72% 44% 56% / 49% 40% 60% 51%;
+  }
+
+  75% {
+    border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%;
+  }
+}
+
+@keyframes bubble {
+  0%,
+  100% {
+    border-radius: 64% 46% 37% 73% / 55% 58% 42% 45%;
+  }
+
+  25% {
+    border-radius: 43% 47% 47% 38% / 43% 46% 64% 27%;
+  }
+
+  50% {
+    border-radius: 48% 72% 44% 56% / 49% 40% 60% 51%;
+  }
+
+  75% {
+    border-radius: 40% 60% 70% 30% / 47% 62% 38% 53%;
   }
 }
